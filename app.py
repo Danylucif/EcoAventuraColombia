@@ -10,6 +10,7 @@ from modules.juegos import iniciar_trivia
 from modules.calculadora import calcular_huella_co2, calcular_consumo_agua, calcular_arboles_compensacion
 from modules.descargas import generar_pdf_certificado
 from modules.reportes import guardar_reporte_fauna, cargar_todos_los_reportes
+from modules.fauna import mostrar_catalogo_fauna
 
 # Configuración avanzada de la página web
 st.set_page_config(page_title="EcoAventuraColombia", layout="wide", initial_sidebar_state="expanded")
@@ -52,12 +53,15 @@ st.caption("Plataforma Tecnológica Interactiva para la Exploración y Conservac
 # Menú del panel de control
 menu = st.sidebar.selectbox(
     "📊 MENÚ DE NAVEGACIÓN",
-    ["Inicio", "Regiones de Colombia", "Mapa de Fauna Silvestre", "Flora de Colombia", "Juegos Educativos", "Audioteca de la Naturaleza", "Calculadora Ecológica", "Reporte de Alertas", "Monitoreo Hídrico"]
+    ["Inicio", "Regiones de Colombia", "Mapa de Fauna Silvestres", "Fichas de Fauna Silvestre", "Flora de Colombia", "Juegos Educativos", "Audioteca de la Naturaleza", "Calculadora Ecológica", "Reportes de Alertas", "Monitoreo Hídrico"]
 )
 
 if menu == "Inicio":
     st.header("¡Bienvenidos a EcoAventuraColombia!")
     st.write("Explora la riqueza biológica de nuestro país, enfocándote en la fauna silvestre, la flora, los páramos y los recursos hídricos.")
+
+elif menu == "Fichas de Fauna Silvestre":
+    mostrar_catalogo_fauna()
 
 elif menu == "Regiones de Colombia":
     st.header("📊 Datos de Biodiversidad por Región")
